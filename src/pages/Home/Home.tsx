@@ -3,7 +3,7 @@ import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import React, { useEffect, useState } from "react";
 
 const Home = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<any[]>([]);
   const adress = "https://rickandmortyapi.com/api/character";
   const fetchUserData = () => {
     fetch(adress)
