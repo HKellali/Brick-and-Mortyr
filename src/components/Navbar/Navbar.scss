@@ -1,0 +1,37 @@
+.navbar{
+    height: 160px;
+
+    .wrapper{
+        width: 100%;
+
+        
+        .up{
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: rgb(245, 245, 245);
+
+            .left{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+            }
+            
+            .right{
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .down {
+            padding: 10px 30px;
+            background: #272b33;
+            color: rgb(245, 245, 245);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+}
