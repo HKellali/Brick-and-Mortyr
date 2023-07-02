@@ -1,33 +1,34 @@
 import "./Home.scss";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [users, setUsers] = useState<any[]>([]);
+  const [characters, setCharacters] = useState<any[]>([]);
   const adress = "https://rickandmortyapi.com/api/character";
-  const fetchUserData = () => {
+  const fetchCharactersData = () => {
     fetch(adress)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setUsers(data.results);
+        setCharacters(data.results);
       });
   };
 
   useEffect(() => {
-    fetchUserData();
+    fetchCharactersData();
   }, []);
 
   return (
     <div className="home">
-      {users.length > 0 && (
+      {characters.length > 0 && (
         <div className="wrapper">
-          {users.map((user) => (
+          {characters.map((character) => (
             <CharacterCard
-              image={user.image}
-              name={user.name}
-              id={user.id}
+              key={character.id}
+              image={character.image}
+              name={character.name}
+              id={character.id}
             ></CharacterCard>
           ))}
         </div>
