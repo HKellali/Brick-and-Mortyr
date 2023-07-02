@@ -8,14 +8,14 @@ const Footer = () => {
       <div className="wrapper">
         <div className="left">
           <p>
-            All of the information is brought to you by&nbsp;
+            All of the data is brought to you by&nbsp;
             <Link to="http://rickandmortyapi.com">The Rick and Morty API</Link>
           </p>
         </div>
         <div className="right">
           <p>
             Follow my github for more information&nbsp;
-            <Link to="http://github.com/HKellali">
+            <Link to="http://github.com/HKellali?tab=repositories">
               <GitHubIcon></GitHubIcon>
             </Link>
           </p>
