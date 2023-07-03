@@ -1,13 +1,13 @@
 # Brick and Mortyr
 
-Brick and Mortyr is a React application that shows Rick and Morty characters with extra information provided by the [Rick and Morty API](https://rickandmortyapi.com/)
+Brick and Mortyr is a React application that shows Rick and Morty characters with extra information provided by the [Rick and Morty API](https://rickandmortyapi.com/).
 
 ## Built With
 
-- [React](https://react.dev/)
-- [Sass](https://sass-lang.com/)
-- [Typescript](https://www.typescriptlang.org/)
-- [React Router](https://reactrouter.com/)
+- [React](https://react.dev/).
+- [Sass](https://sass-lang.com/).
+- [Typescript](https://www.typescriptlang.org/).
+- [React Router](https://reactrouter.com/).
 
 ## Installation
 
@@ -23,7 +23,7 @@ Use npm to build.
 npm run build
 ```
 
-Launch the server on port 5173
+Launch the server on port 5173.
 
 ```bash
 npm run dev -- --host
@@ -33,11 +33,15 @@ Open up http://localhost:5173 to see the app!
 
 ## Usage
 
-Test the app online [here](https://brickandmortyr.netlify.app/)
+Test the app online [here](https://brickandmortyr.netlify.app/).
 
 ## Roadmap
 
-- :ballot_box_with_check: Use loader
-- :black_square_button: Working searchbar
-- :black_square_button: Better visuals
-- :black_square_button: Pagination
+- :ballot_box_with_check: Use loader.
+- :ballot_box_with_check: Working searchbar.
+- :black_square_button: Pagination.
+- :black_square_button: Better visuals.
+
+## Special thanks
+
+This project would not have been possible without the precious help of [Reda Salmi](https://github.com/redasalmi).

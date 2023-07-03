@@ -19,6 +19,15 @@ const Layout = () => {
   );
 };
 
+const queryParameters = new URLSearchParams(window.location.search);
+function GetParameters(queryParameters: URLSearchParams) {
+  const name = queryParameters.get("search");
+
+  return name;
+}
+
+const name = GetParameters(queryParameters);
+
 const router = createBrowserRouter([
   {
     element: <Layout />,
