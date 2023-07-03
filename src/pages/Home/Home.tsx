@@ -1,23 +1,16 @@
 import "./Home.scss";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
-import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import { CharacterCardData } from "../../services/CharacterCardLoader";
+
+type CharactersData = {
+  info: object;
+  results: object;
+};
 
 const Home = () => {
-  const [characters, setCharacters] = useState<any[]>([]);
-  const adress = "https://rickandmortyapi.com/api/character";
-  const fetchCharactersData = () => {
-    fetch(adress)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setCharacters(data.results);
-      });
-  };
-
-  useEffect(() => {
-    fetchCharactersData();
-  }, []);
+  const data = useLoaderData() as CharactersData;
+  const characters = data.results as CharacterCardData[];
 
   return (
     <div className="home">

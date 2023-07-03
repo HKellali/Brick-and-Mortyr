@@ -1,18 +1,13 @@
 import { Link } from "react-router-dom";
+import { CharacterCardData } from "../../services/CharacterCardLoader";
 
-interface Props {
-  image: string;
-  name: string;
-  id: string;
-}
-
-const CharacterCard = ({ image, name, id }: Props) => {
+const CharacterCard = (character: CharacterCardData) => {
   return (
     <div className="character-wrapper">
-      <Link to={"/character/" + id}>
-        <div>Name : {name}</div>
+      <Link to={"/character/" + character.id}>
+        <div>Name : {character.name}</div>
       </Link>
-      <img src={image} alt="" />
+      <img src={character.image} alt="" />
     </div>
   );
 };

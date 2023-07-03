@@ -4,6 +4,7 @@ import SensorsOffIcon from "@mui/icons-material/SensorsOff";
 interface Props {
   status: string;
 }
+
 const Status = ({ status }: Props) => {
   return (
     <span>

@@ -1,25 +1,11 @@
 import "./Character.scss";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Status from "./Status";
+import { useLoaderData } from "react-router-dom";
+import { CharacterData } from "../../services/CharacterLoader";
 
 const Character = () => {
-  const params = useParams();
-  const [character, setCharacter] = useState<any>([]);
-  const adress = "https://rickandmortyapi.com/api/character/" + params.id;
-  const fetchCharacterData = () => {
-    fetch(adress)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setCharacter(data);
-      });
-  };
-
-  useEffect(() => {
-    fetchCharacterData();
-  }, []);
+  const data = useLoaderData();
+  const character = data as CharacterData;
 
   return (
     <div className="character">
