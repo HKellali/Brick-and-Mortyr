@@ -6,26 +6,31 @@ import { CharacterCardData } from "../../services/CharacterCardLoader";
 type CharactersData = {
   info: object;
   results: object;
+  error: string;
 };
 
 const Home = () => {
   const data = useLoaderData() as CharactersData;
-  const characters = data.results as CharacterCardData[];
+  const characters = data.error ? [] : (data.results as CharacterCardData[]);
 
   return (
     <div className="home">
-      {characters.length > 0 && (
-        <div className="wrapper">
-          {characters.map((character) => (
-            <CharacterCard
-              key={character.id}
-              image={character.image}
-              name={character.name}
-              id={character.id}
-            ></CharacterCard>
-          ))}
-        </div>
-      )}
+      <div className="wrapper">
+        {characters.length > 0 ? (
+          <div className="grid">
+            {characters.map((character) => (
+              <CharacterCard
+                key={character.id}
+                image={character.image}
+                name={character.name}
+                id={character.id}
+              ></CharacterCard>
+            ))}
+          </div>
+        ) : (
+          <div className="empty">Nothing to see here!</div>
+        )}
+      </div>
     </div>
   );
 };

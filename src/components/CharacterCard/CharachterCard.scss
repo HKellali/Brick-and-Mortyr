@@ -1,0 +1,26 @@
+.character-wrapper{
+    transition: transform .2s; /* Animation */
+    background-color: rgb(32, 35, 41);
+    margin: 20px;
+    border-radius: 25px;
+    a{
+        color:white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-decoration:none;
+
+        .character-info{
+            text-align: center;
+            font-size: 20px;
+        }
+
+        img{
+            border-radius: 25px 25px 0 0 ;
+        }
+    }
+}
+
+.character-wrapper:hover{
+    transform: scale(1.1);
+}

@@ -1,11 +1,11 @@
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
-import { redirect, useNavigate, useFetcher } from "react-router-dom";
+import { useNavigate, useFetcher } from "react-router-dom";
 
 const Searchbar = () => {
   let navigate = useNavigate();
   const onClick = () => {
-    const adress = "/?name=" + searchInput;
+    const adress = searchInput ? "/?name=" + searchInput : "/";
     fetcher.load(adress);
     navigate(adress);
   };
@@ -24,21 +24,10 @@ const Searchbar = () => {
           placeholder="Search character by name"
           onChange={handleChange}
         />
-        <button type="button" onClick={onClick}>
-          <SearchIcon></SearchIcon>
-        </button>
-      </fetcher.Form>
-      {/* <fetcher.Form method="get" action="/">
-        <input
-          type="text"
-          placeholder="Search character by name"
-          onChange={handleChange}
-          value={searchInput}
-        />
         <button type="submit" onClick={onClick}>
           <SearchIcon></SearchIcon>
         </button>
-      </fetcher.Form> */}
+      </fetcher.Form>
     </div>
   );
 };

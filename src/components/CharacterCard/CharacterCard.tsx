@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { CharacterCardData } from "../../services/CharacterCardLoader";
+import "./CharachterCard.scss";
 
 const CharacterCard = (character: CharacterCardData) => {
   return (
     <div className="character-wrapper">
       <Link to={"/character/" + character.id}>
-        <div>Name : {character.name}</div>
+        <img src={character.image} alt="" />
+        <div className="character-info">{character.name}</div>
       </Link>
-      <img src={character.image} alt="" />
     </div>
   );
 };
