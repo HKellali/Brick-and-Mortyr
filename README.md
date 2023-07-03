@@ -37,7 +37,7 @@ Test the app online [here](https://brickandmortyr.netlify.app/)
 
 ## Roadmap
 
-- Use loader---------------------------------:ballot_box_with_check:
-- Working searchbar--------------------------:black_square_button:
-- Better visuals-----------------------------:black_square_button:
-- Pagination---------------------------------:black_square_button:
+- :ballot_box_with_check: Use loader
+- :black_square_button: Working searchbar
+- :black_square_button: Better visuals
+- :black_square_button: Pagination
