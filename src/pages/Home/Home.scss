@@ -1,6 +1,6 @@
 .home{
 
-    min-height: 675px;
+    min-height: 655px;
     background-color: rgb(103, 103, 103);
 
     .wrapper{
@@ -10,7 +10,7 @@
             display: grid;
             grid-template-columns: repeat(5, 1fr);
         }
-        
+
         .empty{
             display: flex;
             justify-content: center;
