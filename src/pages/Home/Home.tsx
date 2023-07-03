@@ -2,6 +2,7 @@ import "./Home.scss";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import { useLoaderData } from "react-router-dom";
 import { CharacterCardData } from "../../services/CharacterCardLoader";
+import Pagination from "../../components/Pagination/Pagination";
 
 type CharactersData = {
   info: object;
@@ -17,15 +18,18 @@ const Home = () => {
     <div className="home">
       <div className="wrapper">
         {characters.length > 0 ? (
-          <div className="grid">
-            {characters.map((character) => (
-              <CharacterCard
-                key={character.id}
-                image={character.image}
-                name={character.name}
-                id={character.id}
-              ></CharacterCard>
-            ))}
+          <div className="content">
+            <Pagination></Pagination>
+            <div className="grid">
+              {characters.map((character) => (
+                <CharacterCard
+                  key={character.id}
+                  image={character.image}
+                  name={character.name}
+                  id={character.id}
+                ></CharacterCard>
+              ))}
+            </div>
           </div>
         ) : (
           <div className="empty">Nothing to see here!</div>
