@@ -5,6 +5,13 @@ export type CharacterData = {
   status: string;
   gender: string;
   species: string;
+  origin: {
+    name: string;
+  };
+  location: {
+    name: string;
+  };
+  episode: string[];
 };
 
 export const characterLoader = async (request: { params: { id: string } }) => {

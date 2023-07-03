@@ -4,8 +4,10 @@ export type CharacterCardData = {
   image: string;
 };
 
-export const characterCardLoader = async ({ request }) => {
-  const url = new URL(request.url);
+export const characterCardLoader = async (request: {
+  request: { url: string };
+}) => {
+  const url = new URL(request.request.url);
   const name = getParam(url, "name");
   const page = getParam(url, "page", "1");
   const suffix = "?" + page + "&" + name;

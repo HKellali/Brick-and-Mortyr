@@ -3,9 +3,7 @@ import "./Pagination.scss";
 
 const Pagination = () => {
   const queryParameters = new URLSearchParams(window.location.search);
-  const currentPage = queryParameters.get("page")
-    ? queryParameters.get("page")
-    : "1";
+  const currentPage = queryParameters.get("page")!;
   const lastPage = 4;
 
   function changePage(value: number) {

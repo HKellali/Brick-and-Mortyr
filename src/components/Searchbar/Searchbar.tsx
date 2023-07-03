@@ -11,9 +11,10 @@ const Searchbar = () => {
   };
   const fetcher = useFetcher();
   const [searchInput, setSearchInput] = useState("");
-  const handleChange = (e) => {
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setSearchInput(e.target.value);
+    const { target } = e;
+    setSearchInput((target as HTMLButtonElement).value);
   };
   return (
     <div className="search-container">
