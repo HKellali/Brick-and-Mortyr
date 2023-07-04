@@ -19,6 +19,7 @@ const Searchbar = () => {
   return (
     <div className="search-container">
       <fetcher.Form method="get" action="/">
+        <div className="tb"></div>
         <input
           type="text"
           name="name"

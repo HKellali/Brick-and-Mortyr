@@ -1,7 +1,7 @@
 import "./Character.scss";
 import Status from "./Status";
 import { Link, useLoaderData } from "react-router-dom";
-import { CharacterData } from "../../services/CharacterLoader";
+import { CharacterData } from "../../services/CharacterLoader/CharacterLoader";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const Character = () => {

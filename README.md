@@ -41,6 +41,9 @@ Test the app online [here](https://brickandmortyr.netlify.app/).
 - :ballot_box_with_check: Working searchbar.
 - :black_square_button: Pagination.
 - :black_square_button: Better visuals.
+- :black_square_button: Use GraphQL.
+- :black_square_button: Use only React function calls.
+- :black_square_button: Mobile version?
 
 ## Special thanks
 
