@@ -5,7 +5,9 @@ type Data = {
   characters: object[];
 };
 
-export const charactersLoader = async (request: { request: { url: URL } }) => {
+export const charactersLoader = async (request: {
+  request: { url: string };
+}) => {
   const queryParameters = new URLSearchParams(
     new URL(request.request.url).search
   );

@@ -12,8 +12,9 @@
     float: left;
     padding: 8px 16px;
     text-decoration: none;
+    
   }
-
+  
   span {
     float: left;
     text-decoration: none;
@@ -24,10 +25,16 @@
   
   .pagination a.active {
     border-radius: 5px;
-    background-color: #ddd;
+    background-color: #383838;
+  }
+
+  .pagination a.unclickable {
+    pointer-events: none;
+    color: lightgray
   }
   
   .pagination a:hover:not(.active) {
     color: white;
     background-color: #555555;
 }
+

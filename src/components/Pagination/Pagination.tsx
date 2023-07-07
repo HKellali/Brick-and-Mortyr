@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import "./Pagination.scss";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import { PagesOutlined } from "@mui/icons-material";
 
 interface Props {
   pages: string;
@@ -50,16 +53,23 @@ const Pagination = (props: Props) => {
     const pagesLinksNumbers = getPagesLinksNumbers();
 
     let pagesLinks = [
-      <Link to={createLink(changePage(-1), name)} key="0">
+      <Link to={createLink(1, name)} className={makeUnclickable(1)} key="0">
         &laquo;
+      </Link>,
+      <Link
+        to={createLink(changePage(-1), name)}
+        className={makeUnclickable(changePage(-1))}
+        key="1"
+      >
+        <ArrowLeftIcon></ArrowLeftIcon>
       </Link>,
     ];
     pagesLinksNumbers.forEach((value, i) => {
       pagesLinks.push(
         <Link
-          className={currentPage === value ? "active" : ""}
+          className={currentPage === value ? "active unclickable" : ""}
           to={createLink(value, name)}
-          key={value}
+          key={value + 1}
         >
           {value}
         </Link>
@@ -68,16 +78,33 @@ const Pagination = (props: Props) => {
         pagesLinksNumbers[i + 1] - value !== 1 &&
         i < pagesLinksNumbers.length - 1
       ) {
-        pagesLinks.push(<span>...</span>);
+        pagesLinks.push(<span key={"span" + value}>...</span>);
       }
     });
     pagesLinks.push(
-      <Link to={createLink(changePage(1), name)} key={pages + 1}>
+      <Link
+        to={createLink(changePage(1), name)}
+        className={makeUnclickable(changePage(1))}
+        key={pages + 2}
+      >
+        <ArrowRightIcon></ArrowRightIcon>
+      </Link>
+    );
+    pagesLinks.push(
+      <Link
+        to={createLink(pages, name)}
+        className={makeUnclickable(pages)}
+        key={pages + 3}
+      >
         &raquo;
       </Link>
     );
 
     return [pagesLinks];
+  };
+
+  const makeUnclickable = (page: number) => {
+    if (currentPage === page) return "unclickable";
   };
 
   return (
