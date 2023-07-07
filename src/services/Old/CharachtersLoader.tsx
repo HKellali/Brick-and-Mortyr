@@ -1,16 +1,12 @@
-export type CharacterCardData = {
-  name: string;
-  id: string;
-  image: string;
-};
-
-export const characterCardLoader = async (request: {
+export const charactersLoader = async (request: {
   request: { url: string };
 }) => {
   const url = new URL(request.request.url);
-  const name = getParam(url, "name");
-  const page = getParam(url, "page", "1");
-  const suffix = "?" + page + "&" + name;
+  const params = {
+    name: getParam(url, "name"),
+    page: getParam(url, "page", "1"),
+  };
+  const suffix = "?" + params.page + "&" + params.name;
   const prefix = "https://rickandmortyapi.com/api/character/";
   const adress = prefix + suffix;
   const response = await fetch(adress);
@@ -18,10 +14,10 @@ export const characterCardLoader = async (request: {
   return users;
 };
 
-function getParam(url: URL, paramName: string, defaultValue = "") {
+const getParam = (url: URL, paramName: string, defaultValue = "") => {
   const param = url.searchParams.get(paramName)
     ? paramName + "=" + url.searchParams.get(paramName)
     : paramName + "=" + defaultValue;
 
   return param;
-}
+};

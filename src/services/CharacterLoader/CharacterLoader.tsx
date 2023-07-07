@@ -1,23 +1,37 @@
-export type CharacterData = {
-  name: string;
-  id: string;
-  image: string;
-  status: string;
-  gender: string;
-  species: string;
-  origin: {
-    name: string;
-  };
-  location: {
-    name: string;
-  };
-  episode: string[];
+import { gql } from "graphql-request";
+import graphQLClient from "../GraphQLRequest";
+
+type Data = {
+  character: object;
 };
 
 export const characterLoader = async (request: { params: { id: string } }) => {
-  const id = request.params.id;
-  const adress = "https://rickandmortyapi.com/api/character/" + id;
-  const response = await fetch(adress);
-  const user = await response.json();
-  return user;
+  const params = {
+    id: request.params.id,
+  };
+
+  const data: Data = await graphQLClient.request(query, params);
+
+  return data.character;
 };
+
+const query = gql`
+  query character($id: ID!) {
+    character(id: $id) {
+      id
+      name
+      image
+      gender
+      species
+      location {
+        name
+      }
+      origin {
+        name
+      }
+      episode {
+        name
+      }
+    }
+  }
+`;

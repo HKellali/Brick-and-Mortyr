@@ -1,7 +1,7 @@
-import "./Home.scss";
+import "./Characters.scss";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import { useLoaderData } from "react-router-dom";
-import { CharacterCardData } from "../../services/CharachterCardLoader/CharacterCardLoader";
+import { CharacterCardData } from "../../services/CharactersLoader/CharacterCardData";
 import Pagination from "../../components/Pagination/Pagination";
 
 type CharactersData = {
@@ -12,13 +12,13 @@ type CharactersData = {
   error: string;
 };
 
-const Home = () => {
+const Characters = () => {
   const data = useLoaderData() as CharactersData;
   const characters = data.error ? [] : (data.results as CharacterCardData[]);
   const pages = data.error ? "0" : data.info.pages;
 
   return (
-    <div className="home">
+    <div className="characters">
       <div className="wrapper">
         {characters.length > 0 ? (
           <div className="content">
@@ -26,7 +26,7 @@ const Home = () => {
             <div className="grid">
               {characters.map((character) => (
                 <CharacterCard
-                  key={character.id}
+                  key={"card" + character.id}
                   image={character.image}
                   name={character.name}
                   id={character.id}
@@ -42,4 +42,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Characters;

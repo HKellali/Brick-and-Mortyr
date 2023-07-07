@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CharacterCardData } from "../../services/CharachterCardLoader/CharacterCardLoader";
+import { CharacterCardData } from "../../services/CharactersLoader/CharacterCardData";
 import "./CharachterCard.scss";
 
 const CharacterCard = (character: CharacterCardData) => {

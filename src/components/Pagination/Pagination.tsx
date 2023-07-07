@@ -5,37 +5,32 @@ interface Props {
   pages: string;
 }
 
-/* I would like to have a fixed number of pages in the future */
-
+/* Add a fixed number of pages */
 const Pagination = (props: Props) => {
   const queryParameters = new URLSearchParams(window.location.search);
   const currentPage = parseInt(queryParameters.get("page")!) || 1;
   const name = queryParameters.get("name")!;
   const pages = parseInt(props.pages);
 
-  function changePage(value: number) {
-    const previousPage = currentPage;
-    const nextPage = previousPage + value;
+  const changePage = (value: number) => {
+    const nextPage = currentPage + value;
     if (nextPage === 0) {
-      return "1";
+      return 1;
     } else if (nextPage === pages + 1) {
-      return pages.toString();
+      return pages;
     }
-    return nextPage.toString();
-  }
+    return nextPage;
+  };
 
-  function getLink(name: string, page = "1") {
+  /* Add extra fields*/
+  const createLink = (page = 1, name: string) => {
     let link = "/?page=" + page;
     link += name ? "&name=" + name : "";
 
     return link;
-  }
+  };
 
-  function compareNumbers(a: number, b: number) {
-    return a - b;
-  }
-
-  function getPagesLinksNumbers() {
+  const getPagesLinksNumbers = () => {
     let pagesLinksNumbers: number[] = [];
     if (currentPage > 1) {
       pagesLinksNumbers.push(currentPage - 1);
@@ -49,17 +44,21 @@ const Pagination = (props: Props) => {
     pagesLinksNumbers = [...new Set(pagesLinksNumbers)].sort(compareNumbers);
 
     return pagesLinksNumbers;
-  }
+  };
 
   const getPagesLinks = () => {
     const pagesLinksNumbers = getPagesLinksNumbers();
 
-    let pagesLinks = [<Link to={getLink(name, changePage(-1))}>&laquo;</Link>];
-    pagesLinksNumbers.forEach(function (value, i) {
+    let pagesLinks = [
+      <Link to={createLink(changePage(-1), name)} key="0">
+        &laquo;
+      </Link>,
+    ];
+    pagesLinksNumbers.forEach((value, i) => {
       pagesLinks.push(
         <Link
           className={currentPage === value ? "active" : ""}
-          to={getLink(name, value.toString())}
+          to={createLink(value, name)}
           key={value}
         >
           {value}
@@ -72,16 +71,25 @@ const Pagination = (props: Props) => {
         pagesLinks.push(<span>...</span>);
       }
     });
-    pagesLinks.push(<Link to={getLink(name, changePage(1))}>&raquo;</Link>);
+    pagesLinks.push(
+      <Link to={createLink(changePage(1), name)} key={pages + 1}>
+        &raquo;
+      </Link>
+    );
 
-    return pagesLinks;
+    return [pagesLinks];
   };
 
   return (
     <div className="center">
+      {/* Solve issue with unique keys */}
       <div className="pagination">{getPagesLinks()}</div>
     </div>
   );
 };
 
 export default Pagination;
+
+const compareNumbers = (a: number, b: number) => {
+  return a - b;
+};

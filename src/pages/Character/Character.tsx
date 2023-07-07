@@ -1,18 +1,18 @@
 import "./Character.scss";
 import Status from "./Status";
 import { Link, useLoaderData } from "react-router-dom";
-import { CharacterData } from "../../services/CharacterLoader/CharacterLoader";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { CharacterData } from "../../services/CharacterLoader/CharacterData";
 
 const Character = () => {
   const data = useLoaderData();
   const character = data as CharacterData;
-  console.log(character);
 
   return (
     <div className="character">
       <div className="label">Character Info</div>
       <div className="wrapper">
+        {/* Go back to previous page */}
         <Link to="/">
           <ArrowBackIcon></ArrowBackIcon>
         </Link>
