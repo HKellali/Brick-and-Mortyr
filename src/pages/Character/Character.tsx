@@ -1,21 +1,33 @@
 import "./Character.scss";
 import Status from "./Status";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { CharacterData } from "../../services/CharacterLoader/CharacterData";
+import { EpisodeData } from "../../services/CharacterLoader/CharacterData";
+import Button from "@mui/material/Button/Button";
 
 const Character = () => {
+  const navigate = useNavigate();
+  const previousPage = () => {
+    navigate(-1);
+  };
   const data = useLoaderData();
   const character = data as CharacterData;
+
+  /* This is temporary, it will be replaced with a modal showing the list of episodes */
+  let episodes: string = "";
+  character.episode.map((ep: EpisodeData) => {
+    episodes += ep.name + "\r";
+  });
+  /* This is temporary, it will be replaced with a modal showing the list of episodes */
 
   return (
     <div className="character">
       <div className="label">Character Info</div>
       <div className="wrapper">
-        {/* Go back to previous page */}
-        <Link to="/">
+        <Button onClick={previousPage}>
           <ArrowBackIcon></ArrowBackIcon>
-        </Link>
+        </Button>
         <div className="character-image">
           <img src={character.image} alt="" />
         </div>
@@ -50,7 +62,18 @@ const Character = () => {
               </tr>
               <tr>
                 <th>Appeared in</th>
-                <td className="last">{character.episode.length} episodes</td>
+                <td className="last">
+                  <button
+                    onClick={() => {
+                      /* replace with modal */
+                      window.alert(episodes);
+                      /* replace with modal */
+                    }}
+                  >
+                    {character.episode.length} episode
+                    {character.episode.length !== 1 ? "s" : ""}
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>

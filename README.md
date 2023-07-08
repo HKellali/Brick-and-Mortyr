@@ -39,11 +39,11 @@ Test the app online [here](https://brickandmortyr.netlify.app/).
 
 - :ballot_box_with_check: Use loader.
 - :ballot_box_with_check: Working searchbar.
-- :black_square_button: Pagination.
+- :ballot_box_with_check: Use GraphQL.
+- :ballot_box_with_check: Pagination.
+- :ballot_box_with_check: Mobile version
+- :black_square_button: Ability to search with status, gender, etc...
 - :black_square_button: Better visuals.
-- :black_square_button: Use GraphQL.
-- :black_square_button: Use only React syntax.
-- :black_square_button: Mobile version?
 
 ## Special thanks
 

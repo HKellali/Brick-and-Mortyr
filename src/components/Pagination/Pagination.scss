@@ -1,40 +1,35 @@
 .pagination {
-    display: inline-block;
-  }
-
-  .center {
-    text-align: center;
-  }
+  display: inline-block;
   
-  .pagination a {
-    border-radius: 5px;
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    
-  }
-  
-  span {
-    float: left;
-    text-decoration: none;
-    justify-content: center;
-    padding: 4px 8px;
-    align-items: center;
-  }
-  
-  .pagination a.active {
-    border-radius: 5px;
-    background-color: #383838;
-  }
-
-  .pagination a.unclickable {
+  .unclickable {
     pointer-events: none;
     color: lightgray
   }
+
+  .active {
+    background-color: #383838;
+  }
+
+  a {
+    border-radius: 5px;
+    padding: 8px 10px;
+  }  
+
+  .ellipsis  {
+    pointer-events: none;
+  }
   
-  .pagination a:hover:not(.active) {
+  a, span{
+    color: black;
+    float: left;
+    text-decoration: none;
+  }
+  a:hover:not(.active) {
     color: white;
     background-color: #555555;
+  }
 }
 
+.center {
+  text-align: center;
+}

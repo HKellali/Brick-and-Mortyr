@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="wrapper">
         <div className="up">
           <div className="left">
-            <Link to="/">B&R</Link>
+            <Link to="/">B&M</Link>
           </div>
           <div className="right">
             <Searchbar></Searchbar>
@@ -16,6 +16,7 @@ const Navbar = () => {
         </div>
         <div className="down">
           <h1>Welcome to Brick & Mortyr</h1>
+          <hr></hr>
           <h2>All your favorite Rick & Morty characters</h2>
         </div>
       </div>

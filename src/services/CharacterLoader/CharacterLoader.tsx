@@ -1,5 +1,5 @@
 import { gql } from "graphql-request";
-import graphQLClient from "../GraphQLRequest";
+import graphQLClient from "../GraphQLRequest/GraphQLRequest";
 
 type Data = {
   character: object;

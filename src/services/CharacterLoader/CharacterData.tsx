@@ -11,5 +11,9 @@ export type CharacterData = {
   location: {
     name: string;
   };
-  episode: string[];
+  episode: EpisodeData[];
+};
+
+export type EpisodeData = {
+  name: string;
 };

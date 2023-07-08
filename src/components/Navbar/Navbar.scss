@@ -1,11 +1,14 @@
 .navbar{
     padding: 0;
-
+    hr {
+        color: white;
+        width: 100%;
+    }
     .wrapper{
         width: 100%;
 
         .up{
-            padding: 10px 30px;
+            padding: 10px 10px;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -21,7 +24,7 @@
                 a{
                     text-decoration:none;
                     color: white;
-                    font-size: 40px;
+                    font-size: 30px;
                     padding: 10px;
                 }
             }
@@ -38,6 +41,7 @@
             display: flex;
             align-items: center;
             flex-direction: column;
+            text-align: center;
         }
     }
 }

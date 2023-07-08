@@ -1,5 +1,5 @@
 .character {
-  height: 655px;
+  min-height: 655px;
   background-color: lightgrey;
   padding: 10px;
 
@@ -10,13 +10,13 @@
     color: white;
     border-radius: 15px;
     margin: 0 100px;
-
   }
 
   .wrapper {
     padding: 10px 30px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 
     .character-image {
       img{
@@ -33,25 +33,30 @@
       padding-left: 10px;
       
       table {
+        padding: 0;
         margin-top: 3px;
         width: 100%;
         font-family: arial, sans-serif;
         border-collapse: collapse;
       }
         
-      td, th {
-        border-left: 1px solid #0000006b;
-        text-align: left;
-        padding: 9px;
-      }
+     
 
-      .first {
+      @media (min-width: 1250px){
+        .first {
         border-radius: 0 25px 0 0  ;
       }
 
       .last {
         border-radius: 0 0 25px 0  ;
       }
+
+      td, th {
+        border-left: 1px solid #0000006b;
+        text-align: left;
+        padding: 9px;
+      }
+    }
 
       tr:nth-child(even) {
         background-color: #acacac;
@@ -62,3 +67,45 @@
     }
   }
 }
+
+@media (max-width: 1250px) { 
+  .character{
+    .label {
+      font-size: 20px;
+      color: white;
+      border-radius: 10px;
+      margin: 0 100px;
+    }
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      .character-image {
+        img{
+          border-radius: 25px 25px 0 0;
+        }
+      }
+      .character-info {
+        padding: 5px 30px;
+        table {
+          tbody {
+            td, th {
+              text-align: center;
+              padding: 9px;
+              border-left: 1px solid #0000006b;
+            }
+            .last {
+              border-radius: 0 0 25px 0  ;
+            }
+            tr:last-child {
+              th{
+                border-radius: 0 0 0 25px  ;
+              }
+            }
+          }
+          
+        }
+      }
+    }
+  }
+ }

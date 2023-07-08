@@ -18,7 +18,6 @@ import Loading from "./components/Loading/Loading";
 
 const Layout = () => {
   const navigation = useNavigation();
-  console.log(navigation);
 
   return (
     <div className="app">
