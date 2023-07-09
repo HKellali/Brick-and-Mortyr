@@ -28,9 +28,11 @@ const EpisodesModal = (props: Props) => {
         slots={{ backdrop: StyledBackdrop }}
       >
         <Box sx={style}>
-          {props.episodes.map((episode) => (
-            <div>{episode.name}</div>
-          ))}
+          <ul className="episodes">
+            {props.episodes.map((episode) => (
+              <li>{episode.name}</li>
+            ))}
+          </ul>
         </Box>
       </StyledModal>
     </div>
@@ -90,11 +92,9 @@ const StyledBackdrop = styled(Backdrop)`
 
 const style = (theme: Theme) => ({
   width: 400,
-  top: "50%",
-  height: 400,
   borderRadius: "12px",
-  padding: "16px 32px 24px 32px",
-  backgroundColor: theme.palette.mode === "dark" ? "#0A1929" : "white",
+  padding: "15px 0",
+  backgroundColor: theme.palette.mode === "dark " ? "#0A1929" : "white",
   boxShadow: `0px 2px 24px ${
     theme.palette.mode === "dark" ? "#000" : "#383838"
   }`,

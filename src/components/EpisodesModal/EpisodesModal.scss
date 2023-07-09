@@ -1,7 +1,17 @@
 .MuiModal-root{
-    margin: 10px;
-    height: 400px;
+    margin: 100px;
     .MuiBox-root{
-        overflow-y: scroll;
+    overflow-y: hidden;
+}
+}
+
+.episodes{
+    overflow-y: auto;
+    max-height: 400px;
+    height: 100%;
+    list-style-type: none;
+    margin-bottom: 0;
+    li {
+        padding-right: 10px;
     }
 }
