@@ -1,10 +1,10 @@
 import "./Character.scss";
 import Status from "./Status";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { CharacterData } from "../../services/CharacterLoader/CharacterData";
-import { EpisodeData } from "../../services/CharacterLoader/CharacterData";
 import Button from "@mui/material/Button/Button";
+import EpisodesModal from "../../components/EpisodesModal/EpisodesModal";
 
 const Character = () => {
   const navigate = useNavigate();
@@ -13,13 +13,6 @@ const Character = () => {
   };
   const data = useLoaderData();
   const character = data as CharacterData;
-
-  /* This is temporary, it will be replaced with a modal showing the list of episodes */
-  let episodes: string = "";
-  character.episode.map((ep: EpisodeData) => {
-    episodes += ep.name + "\r";
-  });
-  /* This is temporary, it will be replaced with a modal showing the list of episodes */
 
   return (
     <div className="character">
@@ -63,16 +56,7 @@ const Character = () => {
               <tr>
                 <th>Appeared in</th>
                 <td className="last">
-                  <button
-                    onClick={() => {
-                      /* replace with modal */
-                      window.alert(episodes);
-                      /* replace with modal */
-                    }}
-                  >
-                    {character.episode.length} episode
-                    {character.episode.length !== 1 ? "s" : ""}
-                  </button>
+                  <EpisodesModal episodes={character.episode}></EpisodesModal>
                 </td>
               </tr>
             </tbody>

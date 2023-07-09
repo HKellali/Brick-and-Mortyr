@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { CharacterCardData } from "../../services/CharactersLoader/CharacterCardData";
-import "./CharachterCard.scss";
+import "./CharacterCard.scss";
 
 const CharacterCard = (character: CharacterCardData) => {
   return (

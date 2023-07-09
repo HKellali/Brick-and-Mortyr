@@ -8,7 +8,7 @@ import {
   useNavigation,
 } from "react-router-dom";
 import Characters from "./pages/Characters/Characters";
-import { charactersLoader } from "./services/CharactersLoader/CharachtersLoader";
+import { charactersLoader } from "./services/CharactersLoader/CharactersLoader";
 import { characterLoader } from "./services/CharacterLoader/CharacterLoader";
 import Character from "./pages/Character/Character";
 import Navbar from "./components/Navbar/Navbar";

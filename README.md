@@ -42,6 +42,9 @@ Test the app online [here](https://brickandmortyr.netlify.app/).
 - :ballot_box_with_check: Use GraphQL.
 - :ballot_box_with_check: Pagination.
 - :ballot_box_with_check: Mobile version
+
+## Possible enhancements
+
 - :black_square_button: Ability to search with status, gender, etc...
 - :black_square_button: Better visuals.
 
