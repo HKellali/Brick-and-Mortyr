@@ -29,8 +29,8 @@ const EpisodesModal = (props: Props) => {
       >
         <Box sx={style}>
           <ul className="episodes">
-            {props.episodes.map((episode) => (
-              <li>{episode.name}</li>
+            {props.episodes.map((episode, index) => (
+              <li key={index}>{episode.name}</li>
             ))}
           </ul>
         </Box>

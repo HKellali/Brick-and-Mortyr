@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Pagination.scss";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
@@ -18,7 +18,7 @@ const createLink = (page = 1, name: string) => {
 
 /* Add a fixed number of pages */
 const Pagination = (props: Props) => {
-  const queryParameters = new URLSearchParams(window.location.search);
+  const queryParameters = new URLSearchParams(useLocation().search);
   const currentPage = parseInt(queryParameters.get("page")!) || 1;
   const name = queryParameters.get("name")!;
   const pages = parseInt(props.pages);

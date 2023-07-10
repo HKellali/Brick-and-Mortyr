@@ -1,5 +1,6 @@
 import { gql } from "graphql-request";
 import graphQLClient from "../GraphQLRequest/GraphQLRequest";
+import { useLocation } from "react-router-dom";
 
 type Data = {
   characters: object[];
@@ -8,9 +9,7 @@ type Data = {
 export const charactersLoader = async (request: {
   request: { url: string };
 }) => {
-  const queryParameters = new URLSearchParams(
-    new URL(request.request.url).search
-  );
+  const queryParameters = new URLSearchParams(useLocation().search);
   const params = {
     name: queryParameters.get("name"),
     page: parseInt(queryParameters.get("page")!),
