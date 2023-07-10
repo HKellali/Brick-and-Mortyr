@@ -94,7 +94,7 @@ const style = (theme: Theme) => ({
   width: 400,
   borderRadius: "12px",
   padding: "15px 0",
-  backgroundColor: theme.palette.mode === "dark " ? "#0A1929" : "white",
+  backgroundColor: theme.palette.mode === "dark" ? "#0A1929" : "white",
   boxShadow: `0px 2px 24px ${
     theme.palette.mode === "dark" ? "#000" : "#383838"
   }`,

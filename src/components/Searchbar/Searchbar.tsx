@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, useFetcher } from "react-router-dom";
 
 const Searchbar = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const onClick = () => {
     const adress = searchInput ? "/?name=" + searchInput : "/";
     fetcher.load(adress);

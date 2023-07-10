@@ -18,7 +18,8 @@ const createLink = (page = 1, name: string) => {
 
 /* Add a fixed number of pages */
 const Pagination = (props: Props) => {
-  const queryParameters = new URLSearchParams(useLocation().search);
+  const location = useLocation();
+  const queryParameters = new URLSearchParams(location.search);
   const currentPage = parseInt(queryParameters.get("page")!) || 1;
   const name = queryParameters.get("name")!;
   const pages = parseInt(props.pages);
