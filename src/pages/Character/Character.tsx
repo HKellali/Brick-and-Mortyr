@@ -1,12 +1,12 @@
 import "./Character.scss";
 import Status from "./Status";
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { CharacterData } from "../../services/CharacterLoader/CharacterData";
 import Button from "@mui/material/Button/Button";
 import EpisodesModal from "../../components/EpisodesModal/EpisodesModal";
 import { useState, useEffect } from "react";
 import Loading from "../../components/Loading/Loading";
+import { CharacterData } from "../../services/CharacterLoader/CharacterData";
 
 const adress = "https://rickandmortyapi.com/api/character";
 
@@ -17,7 +17,7 @@ const Character = () => {
     navigate(-1);
   };
 
-  const [character, setCharacter] = useState();
+  const [character, setCharacter] = useState<CharacterData>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

@@ -2,7 +2,6 @@ import * as React from "react";
 import clsx from "clsx";
 import { styled, Box, Theme } from "@mui/system";
 import Modal from "@mui/base/Modal";
-import { EpisodeData } from "../../services/CharacterLoader/CharacterData";
 import "./EpisodesModal.scss";
 import { useEffect, useState } from "react";
 
@@ -11,13 +10,13 @@ interface Props {
 }
 
 const EpisodesModal = (props: Props) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [episodes, setEpisodes] = useState([]);
+  const [episodes, setEpisodes] = useState<string[]>([]);
 
   props.episodes.forEach((episode) => {
-    React.useEffect(() => {
+    useEffect(() => {
       fetch(episode)
         .then((response) => response.json())
         .then((data) => {

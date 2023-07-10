@@ -1,21 +1,21 @@
 import "./Characters.scss";
 import CharacterCard from "../../components/CharacterCard/CharacterCard";
-import { useLoaderData, useLocation, useParams } from "react-router-dom";
-import { CharacterCardData } from "../../services/CharactersLoader/CharacterCardData";
+import { useLocation } from "react-router-dom";
 import Pagination from "../../components/Pagination/Pagination";
 import { useEffect, useState } from "react";
 import Loading from "../../components/Loading/Loading";
+import { CharacterData } from "../../services/CharacterLoader/CharacterData";
 
 type CharactersData = {
   info: {
     pages: string;
   };
-  results: object;
+  results: CharacterData[];
   error: string;
 };
 
 const Characters = () => {
-  function getAdress(page, name) {
+  function getAdress(page: number, name: string) {
     let adress = "https://rickandmortyapi.com/api/character/?page=";
     adress += page;
     adress += name ? "&name=" + name : "";
@@ -24,13 +24,13 @@ const Characters = () => {
   const queryParameters = new URLSearchParams(useLocation().search);
 
   const params = {
-    name: queryParameters.get("name"),
+    name: queryParameters.get("name")!,
     page: queryParameters.get("page")
       ? parseInt(queryParameters.get("page")!)
-      : "1",
+      : 1,
   };
   const adress = getAdress(params.page, params.name);
-  const [characters, setCharacters] = useState([]);
+  const [characters, setCharacters] = useState<CharacterData[]>([]);
   const [loading, setLoading] = useState(true);
   const [pages, setPages] = useState("0");
   useEffect(() => {

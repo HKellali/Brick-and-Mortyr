@@ -4,7 +4,7 @@ import { useNavigate, useFetcher, Form } from "react-router-dom";
 
 const Searchbar = () => {
   let navigate = useNavigate();
-  const onClick = (e) => {
+  const onClick = (e: React.FormEvent<HTMLInputElement>) => {
     const adress = searchInput ? "/?page=1&name=" + searchInput : "/?page=1";
     e.preventDefault();
     navigate(adress);
