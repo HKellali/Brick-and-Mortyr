@@ -7,13 +7,7 @@ interface Props {
 
 const Status = ({ status }: Props) => {
   return (
-    <span>
-      {status === "Alive" ? (
-        <SensorsIcon></SensorsIcon>
-      ) : (
-        <SensorsOffIcon></SensorsOffIcon>
-      )}
-    </span>
+    <span>{status === "Alive" ? <SensorsIcon /> : <SensorsOffIcon />}</span>
   );
 };
 

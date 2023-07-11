@@ -1,15 +1,22 @@
-import "./Character.scss";
-import Status from "./Status";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { CharacterData } from "../../services/CharacterLoader/CharacterData";
 import Button from "@mui/material/Button/Button";
+
+import { CharacterData } from "../../services/CharacterLoader/CharacterData";
 import EpisodesModal from "../../components/EpisodesModal/EpisodesModal";
+import Status from "./Status";
+
+import "./Character.scss";
 
 const Character = () => {
   const navigate = useNavigate();
   const previousPage = () => {
-    navigate(-1);
+    const hasHistory = true;
+    if (hasHistory) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
   };
   const data = useLoaderData();
   const character = data as CharacterData;
@@ -19,7 +26,7 @@ const Character = () => {
       <div className="label">Character Info</div>
       <div className="wrapper">
         <Button onClick={previousPage}>
-          <ArrowBackIcon></ArrowBackIcon>
+          <ArrowBackIcon />
         </Button>
         <div className="character-image">
           <img src={character.image} alt="" />
@@ -56,7 +63,7 @@ const Character = () => {
               <tr>
                 <th>Appeared in</th>
                 <td className="last">
-                  <EpisodesModal episodes={character.episode}></EpisodesModal>
+                  <EpisodesModal episodes={character.episode} />
                 </td>
               </tr>
             </tbody>

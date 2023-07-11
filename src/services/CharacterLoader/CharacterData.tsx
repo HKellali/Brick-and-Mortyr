@@ -15,5 +15,6 @@ export type CharacterData = {
 };
 
 export type EpisodeData = {
+  id: string;
   name: string;
 };

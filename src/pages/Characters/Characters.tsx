@@ -1,8 +1,10 @@
-import "./Characters.scss";
-import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import { useLoaderData } from "react-router-dom";
+
+import CharacterCard from "../../components/CharacterCard/CharacterCard";
 import { CharacterCardData } from "../../services/CharactersLoader/CharacterCardData";
 import Pagination from "../../components/Pagination/Pagination";
+
+import "./Characters.scss";
 
 type CharactersData = {
   info: {
@@ -22,15 +24,13 @@ const Characters = () => {
       <div className="wrapper">
         {characters.length > 0 ? (
           <div className="content">
-            <Pagination pages={pages}></Pagination>
+            <Pagination pages={pages} />
             <div className="grid">
               {characters.map((character) => (
                 <CharacterCard
-                  key={"card" + character.id}
-                  image={character.image}
-                  name={character.name}
-                  id={character.id}
-                ></CharacterCard>
+                  key={"character-card" + character.id}
+                  character={character}
+                />
               ))}
             </div>
           </div>

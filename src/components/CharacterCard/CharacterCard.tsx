@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+
 import { CharacterCardData } from "../../services/CharactersLoader/CharacterCardData";
+
 import "./CharacterCard.scss";
 
-const CharacterCard = (character: CharacterCardData) => {
+const CharacterCard = ({ character }: CharacterCardData) => {
+  console.log(character);
   return (
     <div className="character-wrapper">
       <Link to={"/character/" + character.id}>

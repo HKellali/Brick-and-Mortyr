@@ -1,9 +1,13 @@
 .footer{
-    .wrapper{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+        .wrapper{
+        
         display: flex;
         padding: 10px 10px;
-        width: 100%;
-        background: rgb(33, 33, 33);
+        background-image: linear-gradient(to top, #000000, #3d3d3d, #242424, #000000);
         color: darkgray;
         text-align: center;
         p {

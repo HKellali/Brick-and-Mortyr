@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import GitHubIcon from "@mui/icons-material/GitHub";
+
 import "./Footer.scss";
 
 const Footer = () => {
@@ -16,7 +17,7 @@ const Footer = () => {
           <p>
             Follow my github for more information&nbsp;
             <Link to="http://github.com/HKellali?tab=repositories">
-              <GitHubIcon></GitHubIcon>
+              <GitHubIcon />
             </Link>
           </p>
         </div>

@@ -1,16 +1,11 @@
 .characters{
-
-    min-height: 685px;
-    background-color: rgb(103, 103, 103);
-
     .wrapper{
         padding: 10px;
 
         .grid{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 10px;
-            justify-content: center;
+            justify-items: center;
         }
 
         .empty{

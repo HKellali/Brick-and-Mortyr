@@ -1,8 +1,9 @@
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Pagination.scss";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import React from "react";
+
+import "./Pagination.scss";
 
 interface Props {
   pages: string;
@@ -20,9 +21,9 @@ const createLink = (page = 1, name: string) => {
 const Pagination = (props: Props) => {
   const location = useLocation();
   const queryParameters = new URLSearchParams(location.search);
-  const currentPage = parseInt(queryParameters.get("page")!) || 1;
+  const currentPage = parseInt(queryParameters.get("page")!, 10) || 1;
   const name = queryParameters.get("name")!;
-  const pages = parseInt(props.pages);
+  const pages = parseInt(props.pages, 10);
 
   const changePage = (value: number) => {
     const nextPage = currentPage + value;
@@ -34,78 +35,67 @@ const Pagination = (props: Props) => {
     return nextPage;
   };
 
-  const getPagesLinksNumbers = () => {
-    let pagesLinksNumbers: number[] = [1, pages];
-    if (currentPage > 1) {
-      pagesLinksNumbers.push(currentPage - 1);
-    }
+  let pagesLinksNumbers: number[] = [1, pages];
+  if (currentPage > 1) {
+    pagesLinksNumbers.push(currentPage - 1);
+  }
 
-    if (currentPage < pages - 1) {
-      pagesLinksNumbers.push(currentPage + 1);
-    }
-    pagesLinksNumbers.push(currentPage);
-    pagesLinksNumbers = [...new Set(pagesLinksNumbers)].sort(compareNumbers);
+  if (currentPage < pages - 1) {
+    pagesLinksNumbers.push(currentPage + 1);
+  }
+  pagesLinksNumbers.push(currentPage);
+  pagesLinksNumbers = [...new Set(pagesLinksNumbers)].sort(compareNumbers);
 
-    return pagesLinksNumbers;
-  };
-
-  const makeUnclickable = (page: number) => {
+  const unclickable = (page: number) => {
     if (currentPage === page) return "unclickable";
   };
 
   return (
-    <div className="center">
-      <div className="pagination">
-        <Link
-          to={createLink(1, name)}
-          className={makeUnclickable(1)}
-          key="link0"
-        >
-          &laquo;
-        </Link>
-        <Link
-          to={createLink(changePage(-1), name)}
-          className={makeUnclickable(changePage(-1))}
-          key="link1"
-        >
-          <ArrowLeftIcon></ArrowLeftIcon>
-        </Link>
-        {getPagesLinksNumbers().map((number, index) => (
-          <React.Fragment key={"wrapper-span" + number}>
+    <div className="pagination">
+      <Link to={createLink(1, name)} className={unclickable(1)} key="link0">
+        &laquo;
+      </Link>
+      <Link
+        to={createLink(changePage(-1), name)}
+        className={unclickable(changePage(-1))}
+        key="link1"
+      >
+        <ArrowLeftIcon />
+      </Link>
+      {pagesLinksNumbers.map((number, index) => (
+        <React.Fragment key={"wrapper-span" + number}>
+          <Link
+            className={currentPage === number ? "active unclickable" : ""}
+            to={createLink(number, name)}
+            key={"link" + number + 1}
+          >
+            {number}
+          </Link>
+          {pagesLinksNumbers[index] + 1 < pagesLinksNumbers[index + 1] && (
             <Link
-              className={currentPage === number ? "active unclickable" : ""}
-              to={createLink(number, name)}
-              key={"link" + number + 1}
+              to={createLink(currentPage, name)}
+              className="ellipsis"
+              key={"ellipsis" + number}
             >
-              {number}
+              ...
             </Link>
-            {getPagesLinksNumbers()[index] + 1 <
-              getPagesLinksNumbers()[index + 1] && (
-              <Link
-                to={createLink(currentPage, name)}
-                className="ellipsis"
-                key={"ellipsis" + number}
-              >
-                ...
-              </Link>
-            )}
-          </React.Fragment>
-        ))}
-        <Link
-          to={createLink(changePage(1), name)}
-          className={makeUnclickable(changePage(1))}
-          key={"link" + pages + 2}
-        >
-          <ArrowRightIcon></ArrowRightIcon>
-        </Link>
-        <Link
-          to={createLink(pages, name)}
-          className={makeUnclickable(pages)}
-          key={"link" + pages + 3}
-        >
-          &raquo;
-        </Link>
-      </div>
+          )}
+        </React.Fragment>
+      ))}
+      <Link
+        to={createLink(changePage(1), name)}
+        className={unclickable(changePage(1))}
+        key={"link" + pages + 2}
+      >
+        <ArrowRightIcon />
+      </Link>
+      <Link
+        to={createLink(pages, name)}
+        className={unclickable(pages)}
+        key={"link" + pages + 3}
+      >
+        &raquo;
+      </Link>
     </div>
   );
 };

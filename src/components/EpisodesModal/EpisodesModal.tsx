@@ -2,7 +2,9 @@ import * as React from "react";
 import clsx from "clsx";
 import { styled, Box, Theme } from "@mui/system";
 import Modal from "@mui/base/Modal";
+
 import { EpisodeData } from "../../services/CharacterLoader/CharacterData";
+
 import "./EpisodesModal.scss";
 
 interface Props {
@@ -29,8 +31,8 @@ const EpisodesModal = (props: Props) => {
       >
         <Box sx={style}>
           <ul className="episodes">
-            {props.episodes.map((episode, index) => (
-              <li key={index}>{episode.name}</li>
+            {props.episodes.map((episode) => (
+              <li key={episode.id}>{episode.name}</li>
             ))}
           </ul>
         </Box>

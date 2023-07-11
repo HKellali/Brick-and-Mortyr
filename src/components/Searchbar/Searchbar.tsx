@@ -1,13 +1,15 @@
-import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { useNavigate, useFetcher } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Searchbar = () => {
   const navigate = useNavigate();
   const onClick = () => {
-    const adress = searchInput ? "/?name=" + searchInput : "/";
-    fetcher.load(adress);
-    navigate(adress);
+    if (searchInput) {
+      const adress = "/?name=" + searchInput;
+      fetcher.load(adress);
+      navigate(adress);
+    }
   };
   const fetcher = useFetcher();
   const [searchInput, setSearchInput] = useState("");
@@ -19,7 +21,7 @@ const Searchbar = () => {
   return (
     <div className="search-container">
       <fetcher.Form method="get" action="/">
-        <div className="tb"></div>
+        <div className="tb" />
         <input
           type="text"
           name="name"
@@ -27,7 +29,7 @@ const Searchbar = () => {
           onChange={handleChange}
         />
         <button type="submit" onClick={onClick}>
-          <SearchIcon></SearchIcon>
+          <SearchIcon />
         </button>
       </fetcher.Form>
     </div>

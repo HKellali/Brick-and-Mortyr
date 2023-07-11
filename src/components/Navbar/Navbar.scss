@@ -1,24 +1,20 @@
-.navbar{
-    padding: 0;
+.navbar-nav{
     hr {
         color: white;
         width: 100%;
     }
     .wrapper{
-        width: 100%;
-
         .up{
             padding: 10px 10px;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            background: rgb(245, 245, 245);
-
+            background-image: linear-gradient(to top, #000000, #3d3d3d, #242424, #000000);
             .left{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background: #272b33;
+                background-image: linear-gradient(to right top, #e5ff00, #2eb12e, #4b8515, #b7d62b, #00ff4c);
                 border-radius: 20px;
 
                 a{
@@ -36,7 +32,7 @@
         }
         .down {
             padding: 10px 30px;
-            background: #272b33;
+            background-image: linear-gradient(to top, #000000, #3d3d3d, #242424, #888888);
             color: rgb(245, 245, 245);
             display: flex;
             align-items: center;

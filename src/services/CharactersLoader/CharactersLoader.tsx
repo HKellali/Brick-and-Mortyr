@@ -1,22 +1,20 @@
 import { gql } from "graphql-request";
 import graphQLClient from "../GraphQLRequest/GraphQLRequest";
+import { LoaderFunction } from "react-router-dom";
+import { CharacterCardData } from "./CharacterCardData";
 
 type Data = {
-  characters: object[];
+  characters: CharacterCardData[];
 };
 
-export const charactersLoader = async (request: {
-  request: { url: string };
-}) => {
-  const queryParameters = new URLSearchParams(
-    new URL(request.request.url).search
-  );
-  const params = {
+export const charactersLoader: LoaderFunction = async ({ request }) => {
+  const queryParameters = new URLSearchParams(new URL(request.url).search);
+  const variables = {
     name: queryParameters.get("name"),
-    page: parseInt(queryParameters.get("page")!),
+    page: parseInt(queryParameters.get("page")!, 10),
   };
 
-  const data: Data = await graphQLClient.request(query, params);
+  const data: Data = await graphQLClient.request(query, variables);
 
   return data.characters;
 };

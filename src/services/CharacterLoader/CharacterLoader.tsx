@@ -1,16 +1,17 @@
 import { gql } from "graphql-request";
 import graphQLClient from "../GraphQLRequest/GraphQLRequest";
+import { LoaderFunction } from "react-router-dom";
 
 type Data = {
   character: object;
 };
 
-export const characterLoader = async (request: { params: { id: string } }) => {
-  const params = {
-    id: request.params.id,
+export const characterLoader: LoaderFunction = async ({ params }) => {
+  const variables = {
+    id: params.id,
   };
 
-  const data: Data = await graphQLClient.request(query, params);
+  const data: Data = await graphQLClient.request(query, variables);
 
   return data.character;
 };
@@ -30,6 +31,7 @@ const query = gql`
         name
       }
       episode {
+        id
         name
       }
     }

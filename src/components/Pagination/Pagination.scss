@@ -1,5 +1,6 @@
 .pagination {
   display: inline-block;
+  justify-content: center;
   
   .unclickable {
     pointer-events: none;
@@ -28,8 +29,4 @@
     color: white;
     background-color: #555555;
   }
-}
-
-.center {
-  text-align: center;
 }

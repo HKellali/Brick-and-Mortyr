@@ -1,11 +1,9 @@
 .character {
-  min-height: 655px;
-  background-color: lightgrey;
   padding: 10px;
 
   .label {
     text-align: center;
-    background-color: #272b33;
+    background-image: linear-gradient(to top, #000000, #3d3d3d, #242424, #000000);
     font-size: 30px;
     color: white;
     border-radius: 15px;
@@ -42,7 +40,7 @@
         
      
 
-      @media (min-width: 1250px){
+      @media (min-width: 640px){
         .first {
         border-radius: 0 25px 0 0  ;
       }
@@ -69,7 +67,7 @@
   }
 }
 
-@media (max-width: 1250px) { 
+@media (max-width: 640px) { 
   .character{
     .label {
       font-size: 20px;

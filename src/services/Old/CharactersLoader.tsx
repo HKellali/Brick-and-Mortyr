@@ -1,7 +1,7 @@
-export const charactersLoader = async (request: {
-  request: { url: string };
-}) => {
-  const url = new URL(request.request.url);
+import { LoaderFunction } from "react-router-dom";
+
+export const charactersLoader: LoaderFunction = async ({ request }) => {
+  const url = new URL(request.url);
   const params = {
     name: getParam(url, "name"),
     page: getParam(url, "page", "1"),
