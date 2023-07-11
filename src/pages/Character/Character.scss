@@ -1,13 +1,16 @@
 .character {
   padding: 10px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .label {
     text-align: center;
     background-image: linear-gradient(to top, #000000, #3d3d3d, #242424, #000000);
     font-size: 30px;
     color: white;
     border-radius: 15px;
-    margin: 0 100px;
+    width: 200px;
   }
 
   .wrapper {
@@ -29,18 +32,26 @@
     .character-info {
       width: 100%;
       padding-left: 10px;
+      justify-content: center;
       
       table {
         padding: 0;
         margin-top: 3px;
-        width: 100%;
         font-family: arial, sans-serif;
         border-collapse: collapse;
       }
-        
-     
+      th, td {
+        text-transform: capitalize;
+      }
 
-      @media (min-width: 640px){
+      td {
+        text-align: right;
+      }
+      th {
+        text-align: left;
+      }
+
+      @media (min-width: 800px){
         .first {
         border-radius: 0 25px 0 0  ;
       }
@@ -50,9 +61,7 @@
       }
 
       td, th {
-        text-transform: capitalize;
         border-left: 1px solid #0000006b;
-        text-align: left;
         padding: 9px;
       }
     }
@@ -67,7 +76,7 @@
   }
 }
 
-@media (max-width: 640px) { 
+@media (max-width: 800px) { 
   .character{
     .label {
       font-size: 20px;
@@ -89,7 +98,6 @@
         table {
           tbody {
             td, th {
-              text-align: center;
               padding: 9px;
               border-left: 1px solid #0000006b;
             }

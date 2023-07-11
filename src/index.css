@@ -3,7 +3,7 @@ body{
     margin-bottom: 100px;
     clear: both;
  }
- @media (max-width: 640px){
+ @media (max-width: 800px){
     body{
         background-color: rgb(140, 148, 153);
         margin-bottom: 100px;
